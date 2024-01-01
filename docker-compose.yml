@@ -1,0 +1,13 @@
+# docker-compose.yml
+version: '3'
+services:
+  cgm-analyser:
+    build:
+      context: .
+    container_name: cgm-analyser
+    ports:
+      - "9876:9876"
+
+networks:
+  cgm-network:
+    driver: bridge

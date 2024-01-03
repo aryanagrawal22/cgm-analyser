@@ -8,7 +8,14 @@ import (
     "net/http"
 	"strconv"
 	"os"
+	"encoding/json"
 )
+
+type Response struct {
+    Data struct {
+        CGMReadings []map[string]interface{} `json:"cgm_readings"`
+    } `json:"data"`
+}
 
 func StartCron() {
     ticker := time.NewTicker(5 * time.Second)
@@ -54,7 +61,23 @@ func StartCron() {
                     return
                 }
 
-                log.Printf("Response:", string(body))
+				var response Response
+				err = json.Unmarshal(body, &response)
+				if err != nil {
+					log.Printf("Error unmarshalling response:", err)
+					return
+				}
+
+				cgmReadings := response.Data.CGMReadings
+
+				// Convert cgmReadings to JSON string for printing or logging
+				cgmReadingsJSON, err := json.Marshal(cgmReadings)
+				if err != nil {
+					log.Printf("Error marshalling cgmReadings: %v", err)
+					return
+				}
+
+				log.Printf("%s", cgmReadingsJSON)
             }
         }
     }()

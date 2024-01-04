@@ -4,7 +4,7 @@ import (
     "log"
     "net/http"
     "github.com/aryanagrawal22/cgm-analyser/routes"
-    "github.com/aryanagrawal22/cgm-analyser/crons"
+    // "github.com/aryanagrawal22/cgm-analyser/crons"
     "github.com/joho/godotenv"
 )
 
@@ -16,7 +16,7 @@ func main() {
 
     routes.InitRoutes()
 
-    go crons.StartCron()
+    // go crons.StartCron()
 
     port := ":9876"
     log.Printf("Server started on port %s\n", port)

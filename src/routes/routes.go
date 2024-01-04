@@ -7,5 +7,5 @@ import (
 )
 
 func InitRoutes() {
-    http.HandleFunc("/", controllers.HandleRoot)
+    http.HandleFunc("/api/uh-bios-data", controllers.GetBiosData)
 }

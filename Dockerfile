@@ -7,7 +7,7 @@ COPY go.mod ./
 RUN go mod download
 
 COPY src/ .
-COPY .env ./
+# COPY .env ./
 
 RUN go get github.com/joho/godotenv
 RUN go build -o main ./main.go

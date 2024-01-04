@@ -5,7 +5,7 @@ import (
     "net/http"
     "github.com/aryanagrawal22/cgm-analyser/routes"
     // "github.com/aryanagrawal22/cgm-analyser/crons"
-    "github.com/joho/godotenv"
+    // "github.com/joho/godotenv"
 )
 
 func main() {

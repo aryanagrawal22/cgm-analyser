@@ -31,6 +31,7 @@ type StandardResponse struct {
 func GetBiosData(response http.ResponseWriter, request *http.Request) {
     switch request.Method {
     case http.MethodGet:
+        log.Printf("Received request from client IP: %s, Method: %s, URL: %s\n", request.RemoteAddr, request.Method, request.URL)
 
         passcode := request.URL.Query().Get("passcode")
         if passcode == "" {

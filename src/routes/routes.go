@@ -8,4 +8,5 @@ import (
 
 func InitRoutes() {
     http.HandleFunc("/api/uh-bios-data", controllers.GetBiosData)
+    http.HandleFunc("/privacy", controllers.RenderPrivacyPage)
 }
